@@ -3,10 +3,10 @@ package pl.aliberadzki.fittracker.domain;
 /**
  * Created by aliberadzki on 25.02.17.
  */
-public class DeadLift implements Exercise{
+public class WeighliftingExercise implements Exercise {
     private final Set[] sets;
 
-    public DeadLift(Set[] sets) {
+    public WeighliftingExercise(Set[] sets) {
         this.sets = sets;
     }
 

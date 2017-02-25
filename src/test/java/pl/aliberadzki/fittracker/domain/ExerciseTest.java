@@ -22,9 +22,9 @@ public class ExerciseTest {
     @Test
     public void testWorkoutHasExercises() throws Exception {
         Workout workout = new GymWorkout(LocalDate.now());
-        workout.addExercise(new DeadLift(new Set[]{}));
-        workout.addExercise(new Squats());
-        workout.addExercise(new BenchPress());
+        workout.addExercise(new WeighliftingExercise(new Set[]{}));
+        workout.addExercise(new WeighliftingExercise(new Set[]{}));
+        workout.addExercise(new WeighliftingExercise(new Set[]{}));
 
         assertEquals(3, workout.getExercises().size());
     }
@@ -37,7 +37,7 @@ public class ExerciseTest {
         Set thirdWarmupSet = new Set(135, 1);
         Set firstSet = new Set(150, 5);
         Set secondSet = new Set(150, 5);
-        workout.addExercise(new DeadLift(new Set[]{firstWarmupSet, secondWarmupSet, thirdWarmupSet, firstSet, secondSet}));
+        workout.addExercise(new WeighliftingExercise(new Set[]{firstWarmupSet, secondWarmupSet, thirdWarmupSet, firstSet, secondSet}));
 
         assertEquals(75*5+115*3+135+150*10, workout.volume());
 
@@ -52,7 +52,7 @@ public class ExerciseTest {
         Set thirdWarmupSet = new Set(135, 1);
         Set firstSet = new Set(150, 5);
         Set secondSet = new Set(150, 5);
-        workout.addExercise(new DeadLift(new Set[]{firstWarmupSet, secondWarmupSet, thirdWarmupSet, firstSet, secondSet}));
+        workout.addExercise(new WeighliftingExercise(new Set[]{firstWarmupSet, secondWarmupSet, thirdWarmupSet, firstSet, secondSet}));
 
         Workout secondWorkout = new GymWorkout(LocalDate.now());
         firstWarmupSet = new Set(60, 10);
@@ -61,7 +61,7 @@ public class ExerciseTest {
         firstSet = new Set(120, 10);
         secondSet = new Set(120, 10);
         Set thirdSet = new Set(120, 10);
-        secondWorkout.addExercise(new DeadLift(new Set[]{firstWarmupSet, secondWarmupSet, thirdWarmupSet, firstSet, secondSet, thirdSet}));
+        secondWorkout.addExercise(new WeighliftingExercise(new Set[]{firstWarmupSet, secondWarmupSet, thirdWarmupSet, firstSet, secondSet, thirdSet}));
 
         assertTrue(workout.intensity() > secondWorkout.intensity());
     }
