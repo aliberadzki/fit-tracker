@@ -1,12 +1,14 @@
-<p>
-  workoutlist works!
-</p>
-
-<input type="text" [(ngModel)]="newWorkoutName" (keyup.enter)="addWorkout()" />
+<md-input-container>
+  <input mdInput placeholder="Workout name" [(ngModel)]="newWorkoutName" (keyup.enter)="addWorkout()" >
+</md-input-container>
 <ul>
   <li *ngFor="let workout of workouts" >
-    <input type="checkbox" [(ngModel)]="workout.complete"/>
-    <span [ngClass]="{checked: workout.complete}">{{workout.title}}</span>
-    <span class="delete-icon" (click)="deleteWorkout(index)">[x]</span>
+    <md-checkbox [(ngModel)]="workout.complete">
+      <a href="/workout/{{workout.id}}" [ngClass]="{checked: workout.complete}">{{workout.title}}</a>
+    </md-checkbox>
+    <md-icon class="delete-icon" (click)="deleteWorkout(index)">cancel</md-icon>
   </li>
 </ul>
+
+
+
