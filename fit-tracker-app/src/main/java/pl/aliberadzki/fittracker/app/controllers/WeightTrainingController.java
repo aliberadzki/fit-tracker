@@ -14,7 +14,7 @@ import java.time.LocalDate;
 @RestController
 public class WeightTrainingController {
 
-    @RequestMapping(value = "/training/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/api/training/{id}", method = RequestMethod.GET)
     public @ResponseBody Workout getTraining(
             @PathVariable String id)
     {

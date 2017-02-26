@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HelloContoller {
 
-    @RequestMapping("/")
+    @RequestMapping("/api/")
     public String index() {
-        return "Hello from fit-tracker application!";
+        return "Hello, from fit-tracker application!";
     }
 }
