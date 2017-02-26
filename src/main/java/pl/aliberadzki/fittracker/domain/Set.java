@@ -5,8 +5,8 @@ package pl.aliberadzki.fittracker.domain;
  */
 public class Set {
 
-    final int kilos;
-    final int reps;
+    public final int kilos;
+    public final int reps;
 
     public Set(int kilos, int reps) {
         this.kilos = kilos;

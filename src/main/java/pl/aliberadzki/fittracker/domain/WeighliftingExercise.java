@@ -11,6 +11,11 @@ public class WeighliftingExercise implements Exercise {
     }
 
     @Override
+    public Set[] getSets() {
+        return sets;
+    }
+
+    @Override
     public int volume() {
         int volume = 0;
         for(Set set : sets) {

@@ -65,4 +65,6 @@ public class ExerciseTest {
 
         assertTrue(workout.intensity() > secondWorkout.intensity());
     }
+
+
 }

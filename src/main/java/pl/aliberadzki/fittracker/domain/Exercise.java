@@ -5,6 +5,8 @@ package pl.aliberadzki.fittracker.domain;
  */
 public interface Exercise {
 
+    Set[] getSets();
+
     int volume();
 
     double intensity();
