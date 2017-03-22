@@ -1,12 +1,13 @@
+{{errorMessage}}
 <md-input-container>
   <input mdInput placeholder="Workout name" [(ngModel)]="newWorkoutName" (keyup.enter)="addWorkout()" >
 </md-input-container>
 <ul>
-  <li *ngFor="let workout of workouts" >
+  <li *ngFor="let workout of workouts; let i = index" >
     <md-checkbox [(ngModel)]="workout.complete">
       <a href="/workout/{{workout.id}}" [ngClass]="{checked: workout.complete}">{{workout.title}}</a>
     </md-checkbox>
-    <md-icon class="delete-icon" (click)="deleteWorkout(index)">cancel</md-icon>
+    <md-icon class="delete-icon" (click)="deleteWorkout(i)">cancel</md-icon>
   </li>
 </ul>
 

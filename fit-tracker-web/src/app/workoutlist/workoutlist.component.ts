@@ -1,18 +1,25 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {WorkoutsService} from '../services/workout/workout.service'
+import { Workout } from '../workout';
 
 @Component({
   selector: 'workoutlist',
   templateUrl: './workoutlist.component.html',
-  styleUrls: ['./workoutlist.component.css']
+  styleUrls: ['./workoutlist.component.css'],
+  providers: [ WorkoutsService]
 })
-export class WorkoutlistComponent {
+export class WorkoutlistComponent implements OnInit {
   newWorkoutName : string;
   workouts : Array<Workout> = [];
+  errorMessage: string;
 
+  constructor(private workoutService: WorkoutsService) {}
+
+  ngOnInit() { this.getWorkouts(); }
 
   addWorkout() {
     this.workouts.push({
-      id: 0,
+      id: this.workouts.length,
       title: this.newWorkoutName,
       complete:false
     });
@@ -23,19 +30,15 @@ export class WorkoutlistComponent {
     this.workouts.splice(index,1);
   }
 
-  loadWorkouts() {
-    this.workouts = [
-      {id: 1, title: "Trening 1", complete:false},
-      {id: 2, title: "Trening 2", complete:false},
-      {id: 3, title: "Trening 3", complete:false},
-    ];
+  getWorkouts() {
+    this.workoutService
+      .getAllWorkouts()
+      .subscribe(
+        workouts => this.workouts = workouts,
+        error => this.errorMessage = <any>error
+      );
 
   }
 
 }
 
-interface Workout {
-  id: number,
-  title: string,
-  complete: boolean
-}
